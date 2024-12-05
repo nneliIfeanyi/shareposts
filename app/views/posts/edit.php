@@ -5,12 +5,12 @@
   <p>Change the details of this post</p>
   <form action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id']; ?>" method="post">
     <div class="form-group">
-      <label>Title:<sup>*</sup></label>
+      <label>Title</label>
       <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['title']; ?>">
       <span class="invalid-feedback"><?php echo $data['title_err']; ?></span>
     </div>
-    <div class="form-group">
-      <label>Body:<sup>*</sup></label>
+    <div class="form-group my-3">
+      <label>Body</label>
       <textarea name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
       <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
     </div>

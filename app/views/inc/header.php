@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.css" />
   <link rel="stylesheet" href="<?= URLROOT; ?>/bootstrap-icons/bootstrap-icons.css" />
   <title><?php echo SITENAME; ?></title>
+  <style>
+    .truncate {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 
 <body>

@@ -18,7 +18,7 @@
         Written by <?php echo $post->name; ?> | last edited: <span class="fw-lighter fst-italic"><?php echo $post->edited; ?></span>
       <?php endif; ?>
     </div>
-    <p class="card-text"><?php echo $post->body; ?></p>
+    <p class="card-text truncate"><?php echo $post->body; ?></p>
     <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
   </div>
 <?php endforeach; ?>

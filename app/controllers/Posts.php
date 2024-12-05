@@ -68,7 +68,6 @@ class Posts extends Controller
       // Make sure there are no errors
       if (empty($data['title_err']) && empty($data['body_err'])) {
         // Validation passed
-        $data['body'] = nl2br($data['body']);
         //Execute
         if ($this->postModel->addPost($data)) {
           // Redirect to login
