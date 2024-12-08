@@ -5,8 +5,13 @@ class Posts extends Controller
   public $userModel;
   public function __construct()
   {
-    if (!isset($_SESSION['user_id'])) {
+    // if (!isset($_SESSION['user_id'])) {
+    //   redirect('users/login');
+    // }
+    if (!isset($_COOKIE['user_id'])) {
       redirect('users/login');
+    } else {
+      $_SESSION['user_id'] = $_COOKIE['user_id'];
     }
     // Load Models
     $this->postModel = $this->model('Post');
@@ -47,7 +52,7 @@ class Posts extends Controller
       $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
       $data = [
-        'id2' => substr(md5(time()), 25),
+        'id' => substr(md5(time()), 28),
         'title' => trim($_POST['title']),
         'body' => trim($_POST['body']),
         'user_id' => $_SESSION['user_id'],
@@ -68,6 +73,7 @@ class Posts extends Controller
       // Make sure there are no errors
       if (empty($data['title_err']) && empty($data['body_err'])) {
         // Validation passed
+        $data['body'] = nl2br($data['body']);
         //Execute
         if ($this->postModel->addPost($data)) {
           // Redirect to login
@@ -98,7 +104,7 @@ class Posts extends Controller
       $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
       $data = [
-        'id' => $id,
+        'id2' => $id,
         'title' => trim($_POST['title']),
         'body' => trim($_POST['body']),
         'user_id' => $_SESSION['user_id'],
@@ -119,11 +125,15 @@ class Posts extends Controller
       // Make sure there are no errors
       if (empty($data['title_err']) && empty($data['body_err'])) {
         // Validation passed
+        $data['body'] = nl2br($data['body']);
         //Execute
         if ($this->postModel->updatePost($data)) {
           // Redirect to login
           flash('post_message', 'Post Updated');
-          redirect('posts');
+          echo "<script>
+                history.go(-2)
+          </script>";
+          //redirect('posts');
         } else {
           die('Something went wrong');
         }

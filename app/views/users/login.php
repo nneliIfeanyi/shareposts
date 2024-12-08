@@ -4,7 +4,7 @@
     <div class="card card-body bg-light mt-5">
       <?php flash('register_success'); ?>
       <h2>Login</h2>
-      <p>Please fill in your credentials to login.</p>
+      <p class="fst-italic fs-6 fw-light">Please fill in your credentials to login.</p>
       <form action="<?php echo URLROOT; ?>/users/login" method="post">
         <div class="form-group">
           <label>Email</label>
@@ -16,12 +16,12 @@
           <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
           <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>
         </div>
-        <div class="d-flex">
+        <div class="row">
           <div class="col">
-            <input type="submit" class="btn btn-success btn-block" value="Login">
+            <input type="submit" class="btn btn-success px-5 my-2" value="Login">
           </div>
-          <div class="col">
-            <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light btn-block">No account? Register</a>
+          <div class="col-lg-6">
+            <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light my-2">No account? Register</a>
           </div>
         </div>
       </form>

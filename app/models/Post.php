@@ -12,7 +12,7 @@ class Post
   public function getPosts()
   {
     $this->db->query("SELECT *, 
-                        posts.id as postId, 
+                        posts.id2 as postId, 
                         users.id as userId
                         FROM posts 
                         INNER JOIN users 
@@ -27,7 +27,7 @@ class Post
   // Get Post By ID
   public function getPostById($id)
   {
-    $this->db->query("SELECT * FROM posts WHERE id = :id");
+    $this->db->query("SELECT * FROM posts WHERE id2 = :id");
 
     $this->db->bind(':id', $id);
 
@@ -40,15 +40,15 @@ class Post
   public function addPost($data)
   {
     // Prepare Query
-    $this->db->query('INSERT INTO posts (id2, title, user_id, body, day) 
-      VALUES (:id2, :title, :user_id, :body, :day)');
+    $this->db->query('INSERT INTO posts (id, title, user_id, body, day) 
+      VALUES (:id, :title, :user_id, :body, :day)');
 
     // Bind Values
     $this->db->bind(':title', $data['title']);
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':body', $data['body']);
     $this->db->bind(':day', $data['day']);
-    $this->db->bind(':id2', $data['id2']);
+    $this->db->bind(':id', $data['id']);
 
     //Execute
     if ($this->db->execute()) {
@@ -62,10 +62,10 @@ class Post
   public function updatePost($data)
   {
     // Prepare Query
-    $this->db->query('UPDATE posts SET title = :title, body = :body, edited = :edited WHERE id = :id');
+    $this->db->query('UPDATE posts SET title = :title, body = :body, edited = :edited WHERE id2 = :id2');
 
     // Bind Values
-    $this->db->bind(':id', $data['id']);
+    $this->db->bind(':id2', $data['id2']);
     $this->db->bind(':title', $data['title']);
     $this->db->bind(':body', $data['body']);
     $this->db->bind(':edited', $data['edited']);
@@ -81,7 +81,7 @@ class Post
   public function publishPost($id)
   {
     // Prepare Query
-    $this->db->query('UPDATE posts SET status = :status WHERE id = :id');
+    $this->db->query('UPDATE posts SET status = :status WHERE id2 = :id');
 
     // Bind Values
     $this->db->bind(':id', $id);
@@ -96,7 +96,7 @@ class Post
   public function unPublishPost($id)
   {
     // Prepare Query
-    $this->db->query('UPDATE posts SET status = :status WHERE id = :id');
+    $this->db->query('UPDATE posts SET status = :status WHERE id2 = :id');
 
     // Bind Values
     $this->db->bind(':id', $id);
@@ -112,7 +112,7 @@ class Post
   public function deletePost($id)
   {
     // Prepare Query
-    $this->db->query('DELETE FROM posts WHERE id = :id');
+    $this->db->query('DELETE FROM posts WHERE id2 = :id');
 
     // Bind Values
     $this->db->bind(':id', $id);

@@ -4,6 +4,7 @@ class Users extends Controller
   public $userModel;
   public function __construct()
   {
+
     $this->userModel = $this->model('User');
   }
 
@@ -177,6 +178,9 @@ class Users extends Controller
 
   public function profile()
   {
+    if (!$this->isLoggedIn()) {
+      redirect('users/login');
+    }
     $user = $this->userModel->getUserById($_SESSION['user_id']);
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -208,6 +212,9 @@ class Users extends Controller
 
   public function wall()
   {
+    if (!$this->isLoggedIn()) {
+      redirect('users/login');
+    }
     $posts = $this->userModel->getPosts();
 
     $data = [
@@ -220,18 +227,17 @@ class Users extends Controller
   // Create Session With User Info
   public function createUserSession($user)
   {
-    $_SESSION['user_id'] = $user->id;
-    $_SESSION['user_email'] = $user->email;
-    $_SESSION['user_name'] = $user->name;
+    setcookie('user_id', $user->id, time() + (86400 * 365), '/');
     redirect('posts');
   }
 
   // Logout & Destroy Session
   public function logout()
   {
-    unset($_SESSION['user_id']);
-    unset($_SESSION['user_email']);
-    unset($_SESSION['user_name']);
+    $id = $_COOKIE['user_id'];
+
+    setcookie('user_id', $id, time() - 3, '/');
+    session_unset();
     session_destroy();
     redirect('users/login');
   }

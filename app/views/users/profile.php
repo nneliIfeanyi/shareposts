@@ -5,7 +5,7 @@
         <div class="card card-body bg-light mt-5">
             <?php flash('profile_message'); ?>
             <h2>Profile Setting</h2>
-            <p>Please fill this form to update profile</p>
+            <p class="fst-italic fs-6 fw-light">Change details of this form to update profile</p>
             <form action="<?php echo URLROOT; ?>/users/profile" method="post">
                 <div class="form-group">
                     <label>Name</label>
@@ -24,12 +24,12 @@
                     <input name="residence" class="form-control form-control-lg" value="<?php echo $data['user']->residence; ?>">
                 </div>
 
-                <div class="form-row d-flex">
+                <div class="d-flex">
                     <div class="col">
-                        <input type="submit" class="btn btn-success btn-block" value="Save Changes">
+                        <input type="submit" class="btn btn-success  my-2" value="Save Changes">
                     </div>
                     <div class="col">
-                        <a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-light fw-semibold">My Wall</a>
+                        <a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-light my-2"><i class="bi bi-journal-text" aria-hidden="true"></i> My Wall</a>
                     </div>
                 </div>
             </form>

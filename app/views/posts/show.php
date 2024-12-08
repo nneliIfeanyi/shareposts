@@ -8,9 +8,9 @@
 <p><?php echo $data['post']->body; ?></p>
 <?php if ($data['post']->user_id == $_SESSION['user_id']) : ?>
   <hr>
-  <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id; ?>">Edit</a>
-  <a class="btn btn-success" href="<?php echo URLROOT; ?>/users/wall">My Wall</a>
-  <form class="float-end" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
+  <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id2; ?>"><i class="bi bi-pen" aria-hidden="true"></i> Edit</a>
+  <a class="btn btn-success" href="<?php echo URLROOT; ?>/users/wall"><i class="bi bi-journal-text" aria-hidden="true"></i> My Wall</a>
+  <form class="float-end" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id2; ?>" method="post">
     <input type="submit" class="btn btn-danger" value="Delete">
   </form>
 <?php endif; ?>

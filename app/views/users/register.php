@@ -2,9 +2,9 @@
 
 <div class="row">
   <div class="col-md-6 mx-auto">
-    <div class="card card-body bg-light mt-5">
+    <div class="card card-body bg-light my-5">
       <h2>Create An Account</h2>
-      <p>Please fill this form to register with us</p>
+      <p class="fst-italic fs-6 fw-light">Please fill this form to register with us</p>
       <form action="<?php echo URLROOT; ?>/users/register" method="post">
         <div class="form-group">
           <label>Name</label>
@@ -27,12 +27,12 @@
           <span class="invalid-feedback"><?php echo $data['confirm_password_err']; ?></span>
         </div>
 
-        <div class="form-row d-flex">
+        <div class="row">
           <div class="col">
-            <input type="submit" class="btn btn-success btn-block" value="Register">
+            <input type="submit" class="btn btn-success my-2 px-5" value="Register">
           </div>
-          <div class="col">
-            <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Have an account? Login</a>
+          <div class="col-lg-6">
+            <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light my-2">Have an account? Login</a>
           </div>
         </div>
       </form>

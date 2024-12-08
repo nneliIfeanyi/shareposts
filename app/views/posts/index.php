@@ -5,7 +5,7 @@
     <h1>Posted</h1>
   </div>
   <div class="col-md-6">
-    <a class="btn btn-primary float-end" href="<?php echo URLROOT; ?>/posts/add"><i class="fa fa-pencil" aria-hidden="true"></i> Add Post</a>
+    <a class="btn btn-success float-end" href="<?php echo URLROOT; ?>/posts/add"><i class="bi bi-pen" aria-hidden="true"></i> Add Post</a>
   </div>
 </div>
 <?php foreach ($data['posts'] as $post) : ?>
@@ -18,7 +18,7 @@
         Written by <?php echo $post->name; ?> | last edited: <span class="fw-lighter fst-italic"><?php echo $post->edited; ?></span>
       <?php endif; ?>
     </div>
-    <p class="card-text truncate"><?php echo $post->body; ?></p>
+    <p class="card-text"><?php echo $post->body; ?></p>
     <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
   </div>
 <?php endforeach; ?>
