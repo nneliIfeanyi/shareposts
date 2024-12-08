@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.css" />
   <link rel="stylesheet" href="<?= URLROOT; ?>/bootstrap-icons/bootstrap-icons.css" />
   <title><?php echo SITENAME; ?></title>
+  <!-- more meta -->
+  <meta name="keyword" content="Sharefaith, Socoal Media, Social network, fediverse, mastodon, peertube, bluesky" />
+  <meta name="description" content="A growing and under-developed social network app built on the TraversyMVC framework" />
+  <meta name="robots" content="index, nofollow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="apple-mobile-web-app-title" content="goodscores" />
+  <meta name="application-name" content="Sharefaith" />
+  <meta name="msapplication-TileName" content="Sharefaith" />
+  <meta name="msapplication-TileImage" content="<?php echo URLROOT; ?>/icons/favicon-32x32.png" width="32" height="32" />
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +27,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="<?= URLROOT; ?>/icons/favicon-16x16.png">
   <link rel="manifest" href="<?= URLROOT; ?>/site.webmanifest">
   <!-- theme-color -->
-  <meta name="apple-mobile-web-app-status-bar" content="#f6f9ff">
-  <meta name="theme-color" content="#f6f9ff">
+  <meta name="apple-mobile-web-app-status-bar" content="#ced4da">
+  <meta name="theme-color" content="#ced4da">
 </head>
 
 <body>
