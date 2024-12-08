@@ -9,8 +9,17 @@
   <link rel="stylesheet" href="<?= URLROOT; ?>/bootstrap-icons/bootstrap-icons.css" />
   <title><?php echo SITENAME; ?></title>
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= URLROOT; ?>/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= URLROOT; ?>/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= URLROOT; ?>/icons/favicon-16x16.png">
+  <link rel="manifest" href="<?= URLROOT; ?>/site.webmanifest">
+  <!-- theme-color -->
+  <meta name="apple-mobile-web-app-status-bar" content="#f6f9ff">
+  <meta name="theme-color" content="#f6f9ff">
 </head>
 
 <body>
