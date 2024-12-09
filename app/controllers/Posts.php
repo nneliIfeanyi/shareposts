@@ -53,6 +53,7 @@ class Posts extends Controller
 
       $data = [
         'id' => substr(md5(time()), 28),
+        's_id' => substr(md5(time()), 22),
         'title' => trim($_POST['title']),
         'body' => trim($_POST['body']),
         'user_id' => $_SESSION['user_id'],
@@ -76,9 +77,10 @@ class Posts extends Controller
         $data['body'] = nl2br($data['body']);
         //Execute
         if ($this->postModel->addPost($data)) {
+          $this->postModel->insertIntoSeries($data);
           // Redirect to login
           flash('post_added', 'Post Added');
-          redirect('users/wall');
+          redirect('posts/append/' . $data['id']);
         } else {
           die('Something went wrong');
         }
@@ -94,6 +96,23 @@ class Posts extends Controller
 
       $this->view('posts/add', $data);
     }
+  }
+
+
+  public function append($id)
+  {
+    $post = $this->postModel->getPostBy_s_id($id);
+    $posts = $this->postModel->getseries($post->s_id);
+    //Set Data
+    $data = [
+      's_id' => $id,
+      'post' => $post,
+      'body' => '',
+      'posts' => $posts
+    ];
+
+    // Load about view
+    $this->view('posts/append', $data);
   }
 
   // Edit Post
@@ -158,6 +177,24 @@ class Posts extends Controller
 
       $this->view('posts/edit', $data);
     }
+  }
+  public function s_edit($id)
+  {
+    // Get post from model
+    $post = $this->postModel->getPostById2($id);
+
+    // Check for owner
+    if ($post->user_id != $_SESSION['user_id']) {
+      redirect('posts');
+    }
+
+    $data = [
+      'id' => $id,
+      'title' => $post->title,
+      'body' => $post->body,
+    ];
+
+    $this->view('posts/s_edit', $data);
   }
   public function status_on($id)
   {

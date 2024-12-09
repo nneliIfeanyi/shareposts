@@ -11,8 +11,9 @@
         </li>
         <?php if (isset($_SESSION['user_id'])) : ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/posts/add"><i class="bi bi-pen" aria-hidden="true"></i> Add Post</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/wall"><i class="bi bi-journal-text" aria-hidden="true"></i> My Wall</a>
           </li>
+
         <?php else : ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
@@ -22,7 +23,7 @@
       <ul class="navbar-nav ms-auto">
         <?php if (isset($_SESSION['user_id'])) : ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/wall"><i class="bi bi-journal-text" aria-hidden="true"></i> My Wall</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/posts/add"><i class="bi bi-pen" aria-hidden="true"></i> Add Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class="bi bi-box-arrow-left" aria-hidden="true"></i> Logout</a>

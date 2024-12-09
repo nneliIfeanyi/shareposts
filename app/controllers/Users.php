@@ -2,10 +2,12 @@
 class Users extends Controller
 {
   public $userModel;
+  public $postModel;
   public function __construct()
   {
 
     $this->userModel = $this->model('User');
+    $this->postModel = $this->model('Post');
   }
 
   public function index()
@@ -222,6 +224,20 @@ class Users extends Controller
     ];
 
     $this->view('users/wall', $data);
+  }
+
+  public function series($s_id)
+  {
+    if (!$this->isLoggedIn()) {
+      redirect('users/login');
+    }
+    $posts = $this->postModel->getseries($s_id);
+
+    $data = [
+      'posts' => $posts
+    ];
+
+    $this->view('users/series', $data);
   }
 
   // Create Session With User Info

@@ -1,7 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+
+<div style="margin-top: 78px;"></div>
 <?php flash('post_message'); ?>
 <?php foreach ($data['posts'] as $post) : ?>
-  <div class="card card-body mb-3">
+  <div class="card card-body">
     <h4 class="card-title"><?php echo $post->title; ?></h4>
     <div class="bg-light p-2 mb-3">
       <?php if (empty($post->edited)): ?>
