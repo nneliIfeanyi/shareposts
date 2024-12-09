@@ -11,7 +11,7 @@
     </div>
     <div class="form-group my-3">
       <label>Body</label>
-      <textarea name="body" rows="5" cols="30" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
+      <textarea name="body" rows="10" cols="30" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
       <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
     </div>
     <input type="submit" class="btn btn-success my-2 px-5" value="Submit">

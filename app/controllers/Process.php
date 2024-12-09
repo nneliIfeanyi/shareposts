@@ -73,9 +73,7 @@ class Process extends Controller
                 if ($this->postModel->updateSeries($data)) {
                     // Redirect to login
                     flash('post_message', 'Post Updated');
-                    echo "<script>
-                history.go(-2)
-          </script>";
+                    redirect('posts/s_edit/' . $id);
                     //redirect('posts');
                 } else {
                     die('Something went wrong');
