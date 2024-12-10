@@ -15,7 +15,12 @@
     <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
   </div>
 <?php endforeach; ?>
-
+<!-- End of posts -->
+<div class="d-flex justify-content-center">
+  <div class="spinner-border text-secondary mt-3" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
