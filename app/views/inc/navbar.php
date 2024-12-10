@@ -7,8 +7,8 @@
         <a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-sm"><i class="bi bi-journal-text fs-4"></i></a>
       </div>
       <button class="navbar-toggler border-0 mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <!-- <span class="navbar-toggler-icon"></span> -->
-        <i class="bi bi-filter-circle fs-3"></i>
+        <span class="navbar-toggler-icon"></span>
+        <!-- <i class="bi bi-filter-circle fs-3"></i> -->
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
