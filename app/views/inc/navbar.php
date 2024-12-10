@@ -6,7 +6,7 @@
         <a href="<?php echo URLROOT; ?>/posts/add" class="btn btn-sm"><i class="bi bi-plus-circle fs-4 "></i></a>
         <a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-sm"><i class="bi bi-journal-text fs-4"></i></a>
       </div>
-      <button class="navbar-toggler border-0 mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler border-0 mb-1 mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         <!-- <i class="bi bi-filter-circle fs-3"></i> -->
       </button>
