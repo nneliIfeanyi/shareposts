@@ -1,7 +1,7 @@
 <?php if (isset($_SESSION['user_id'])) : ?>
   <nav class="navbar navbar-expand-md fixed-top bg-dark-subtle mb-3">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="<?php echo URLROOT; ?>/pages"><?php echo SITENAME; ?></a>
+      <a class="navbar-brand fw-lighter" href="<?php echo URLROOT; ?>/pages"><?php echo SITENAME; ?></a>
       <div class="d-flex mb-1 ms-auto">
         <a href="<?php echo URLROOT; ?>/posts/add" class="btn btn-sm"><i class="bi bi-plus-circle fs-4 "></i></a>
         <a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-sm"><i class="bi bi-journal-text fs-4"></i></a>
@@ -25,7 +25,7 @@
 <?php else: ?>
   <nav class="navbar navbar-expand-md fixed-top bg-dark-subtle mb-3">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="<?php echo URLROOT; ?>/pages"><?php echo SITENAME; ?></a>
+      <a class="navbar-brand fw-lighter" href="<?php echo URLROOT; ?>/pages"><?php echo SITENAME; ?></a>
       <button class="navbar-toggler border-0 mx-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
