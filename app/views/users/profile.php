@@ -1,10 +1,15 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<div style="margin-top: 78px;"></div>
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+        <li class="breadcrumb-item fst-italic">Profile</li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-md-6 mx-auto">
-        <div class="card card-body bg-light mt-5">
+        <div class="card card-body bg-light mb-5">
             <?php flash('profile_message'); ?>
-            <h2>Profile Setting</h2>
             <p class="fst-italic fs-6 fw-light">Change details of this form to update profile</p>
             <form action="<?php echo URLROOT; ?>/users/profile" method="post">
                 <div class="form-group">

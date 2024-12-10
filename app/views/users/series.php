@@ -1,5 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div style="margin-top: 78px;"></div>
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+        <li class="breadcrumb-item fst-italic">Series</li>
+    </ol>
+</nav>
 <?php flash('post_message'); ?>
 <?php $n = 1;
 foreach ($data['posts'] as $post) : ?>
@@ -12,21 +18,20 @@ foreach ($data['posts'] as $post) : ?>
         <p class="card-text"><?php echo $post->body; ?></p>
         <hr>
         <div class="d-flex">
-            <a class="btn-sm btn btn-dark me-2" href="<?php echo URLROOT; ?>/posts/s_edit/<?php echo $post->id2; ?>">Edit</a>
-            <?php if (empty($post->status)): ?>
-                <a class="btn-sm btn btn-success me-2" href="<?php echo URLROOT; ?>/posts/status_on/<?php echo $post->id2; ?>">Publish</a>
-            <?php else: ?>
-                <a class="btn-sm btn btn-success me-2" href="<?php echo URLROOT; ?>/posts/status_off/<?php echo $post->id2; ?>">Retrieve</a>
+            <?php if ($n == 1): ?>
+                <a class="btn-sm btn btn-dark me-2" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $post->id; ?>">Edit</a>
+                <a href="<?= URLROOT; ?>/users/wall" class="btn btn-sm"><i class="bi bi-chevron-left"></i> Return</a>
+            <?php else : ?>
+
+                <a class="btn-sm btn btn-dark me-2" href="<?php echo URLROOT; ?>/posts/s_edit/<?php echo $post->id; ?>">Edit</a>
+                <form class="ms-2" action="<?php echo URLROOT; ?>/posts/delete_series/<?php echo $post->id; ?>" method="post">
+                    <input type="hidden" name="s_id" value="<?= $post->s_id; ?>">
+                    <input type="submit" class="btn-sm btn btn-danger" value="Delete">
+                </form>
             <?php endif; ?>
-            <a class="btn-sm btn btn-outline-secondary me-2" href="<?php echo URLROOT; ?>/posts/append/<?php echo $post->id; ?>">Append Post</a>
-            <form class="ms-2" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $post->id2; ?>" method="post">
-                <input type="submit" class="btn-sm btn btn-danger" value="Delete">
-            </form>
         </div>
     </div>
 <?php $n++;
 endforeach; ?>
-
-
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

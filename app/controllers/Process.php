@@ -44,8 +44,6 @@ class Process extends Controller
     public function edit($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Sanitize POST
-
             $data = [
                 'id2' => $id,
                 'title' => trim($_POST['title']),
@@ -55,34 +53,15 @@ class Process extends Controller
                 'title_err' => '',
                 'body_err' => ''
             ];
-
-            // Validate email
-            if (empty($data['title'])) {
-                $data['title_err'] = 'Please enter name';
-                // Validate name
-                if (empty($data['body'])) {
-                    $data['body_err'] = 'Please enter the post body';
-                }
-            }
-
-            // Make sure there are no errors
-            if (empty($data['title_err']) && empty($data['body_err'])) {
-                // Validation passed
-                $data['body'] = nl2br($data['body']);
-                //Execute
-                if ($this->postModel->updateSeries($data)) {
-                    // Redirect to login
-                    flash('post_message', 'Post Updated');
-                    redirect('posts/s_edit/' . $id);
-                    //redirect('posts');
-                } else {
-                    die('Something went wrong');
-                }
+            $data['body'] = nl2br($data['body']);
+            //Execute
+            if ($this->postModel->updateSeries($data)) {
+                flash('post_message', 'Post Updated');
+                redirect('posts/s_edit/' . $id);
             } else {
-                // Load view with errors
-                $this->view('posts/edit', $data);
+                die('Something went wrong');
             }
-        } else {
+        } else { // Not Post Request
             redirect('users/wall');
         }
     }

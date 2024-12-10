@@ -27,7 +27,7 @@ class Post
   // Get Post By ID
   public function getPostById($id)
   {
-    $this->db->query("SELECT * FROM posts WHERE id2 = :id");
+    $this->db->query("SELECT * FROM posts WHERE id = :id");
 
     $this->db->bind(':id', $id);
 
@@ -107,10 +107,10 @@ class Post
   public function updatePost($data)
   {
     // Prepare Query
-    $this->db->query('UPDATE posts SET title = :title, body = :body, edited = :edited WHERE id2 = :id2');
+    $this->db->query('UPDATE posts SET title = :title, body = :body, edited = :edited WHERE id = :id');
 
     // Bind Values
-    $this->db->bind(':id2', $data['id2']);
+    $this->db->bind(':id', $data['id']);
     $this->db->bind(':title', $data['title']);
     $this->db->bind(':body', $data['body']);
     $this->db->bind(':edited', $data['edited']);
@@ -125,10 +125,10 @@ class Post
   public function updateSeries($data)
   {
     // Prepare Query
-    $this->db->query('UPDATE series SET title = :title, body = :body, edited = :edited WHERE id2 = :id2');
+    $this->db->query('UPDATE series SET title = :title, body = :body, edited = :edited WHERE id = :id');
 
     // Bind Values
-    $this->db->bind(':id2', $data['id2']);
+    $this->db->bind(':id', $data['id']);
     $this->db->bind(':title', $data['title']);
     $this->db->bind(':body', $data['body']);
     $this->db->bind(':edited', $data['edited']);
@@ -195,10 +195,26 @@ class Post
 
 
   // Delete Post
+  public function deleteSeries($id)
+  {
+    // Prepare Query
+    $this->db->query('DELETE FROM series WHERE id = :id');
+
+    // Bind Values
+    $this->db->bind(':id', $id);
+
+    //Execute
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public function deletePost($id)
   {
     // Prepare Query
-    $this->db->query('DELETE FROM posts WHERE id2 = :id');
+    $this->db->query('DELETE FROM posts WHERE id = :id');
 
     // Bind Values
     $this->db->bind(':id', $id);
