@@ -1,5 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div style="margin-top: 78px;"></div>
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+        <li class="breadcrumb-item fst-italic">My Wall</li>
+    </ol>
+</nav>
 <?php flash('post_message'); ?>
 <?php foreach ($data['posts'] as $post) : ?>
     <div class="card card-body mb-3">

@@ -1,7 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div style="margin-top: 78px;"></div>
-<a href="<?php echo URLROOT; ?>" class="btn btn-light mb-3"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</a>
-<br>
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+    <li class="breadcrumb-item fst-italic">View Post</li>
+  </ol>
+</nav>
 <h1><?php echo $data['post']->title; ?></h1>
 <div class="bg-secondary text-white p-2 mb-3">
   <?php if (empty($data['user']->edited)): ?>

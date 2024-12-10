@@ -1,10 +1,14 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div style="margin-top: 78px;"></div>
-<a href="<?php echo URLROOT; ?>/users/wall" class="btn btn-light"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</a>
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+    <li class="breadcrumb-item fst-italic">Edit Post</li>
+  </ol>
+</nav>
 <div class="row">
   <div class="col-lg-6 mx-auto">
-    <div class="card card-body bg-light my-5">
-      <h2>Edit Post</h2>
+    <div class="card card-body bg-light mb-5">
       <p class="fst-italic fs-6 fw-light">Change the details of this post</p>
       <form action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id']; ?>" method="post">
         <div class="form-group">

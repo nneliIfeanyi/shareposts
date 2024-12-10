@@ -1,5 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<a href="<?php echo URLROOT; ?>" class="btn btn-light"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</a>
+<div style="margin-top: 78px;"></div>
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?= URLROOT; ?>/posts"><i class="bi bi-house text-muted"></i></a></li>
+    <li class="breadcrumb-item fst-italic">Add Post</li>
+  </ol>
+</nav>
 <div class="row">
   <div class="col-lg-6 mx-auto">
     <div class="card px-2 shadow bg-light my-5">
