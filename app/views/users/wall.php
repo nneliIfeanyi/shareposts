@@ -1,10 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<div class="d-flex mt-5">
-    <a href="#" onclick="history.back()" class="btn-sm btn btn-light my-3 me-2"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</a>
-    <a href="<?php echo URLROOT; ?>/users/profile" class="btn-sm btn btn-outline-dark my-3"><i class="bi bi-person" aria-hidden="true"></i> Profile</a>
-    <a href="<?php echo URLROOT; ?>/posts/add" class="btn-sm btn my-3"><i class="bi bi-pen" aria-hidden="true"></i> Add Post</a>
-    <br>
-</div>
+<div style="margin-top: 78px;"></div>
 <?php flash('post_message'); ?>
 <?php foreach ($data['posts'] as $post) : ?>
     <div class="card card-body mb-3">

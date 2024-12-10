@@ -21,11 +21,12 @@
             <input type="submit" class="btn btn-success px-5 my-2" value="Login">
           </div>
           <div class="col-lg-6">
-            <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light my-2">No account? Register</a>
+            <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-outline-secondary my-2">No account? Register</a>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+<?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

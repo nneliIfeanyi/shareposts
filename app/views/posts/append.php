@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div style="margin-top: 78px;"></div>
-<a href="<?php echo URLROOT; ?>" class="btn btn-light"><i class="bi bi-house" aria-hidden="true"></i> Home</a>
 <div class="row">
     <div class="col-lg-6 mx-auto">
         <div class="card px-2 shadow bg-light my-5">

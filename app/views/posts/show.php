@@ -4,17 +4,14 @@
 <br>
 <h1><?php echo $data['post']->title; ?></h1>
 <div class="bg-secondary text-white p-2 mb-3">
-  Written by <?php echo $data['user']->name; ?> on <?php echo $data['post']->created_at; ?>
+  <?php if (empty($data['user']->edited)): ?>
+    Written by <?php echo $data['user']->name; ?> | <span class="fw-lighter fst-italic"><?php echo $data['post']->day; ?></span>
+  <?php else: ?>
+    Written by <?php echo $data['user']->name; ?> | last edited: <span class="fw-lighter fst-italic"><?php echo $data['post']->edited; ?></span>
+  <?php endif; ?>
 </div>
 <p><?php echo $data['post']->body; ?></p>
-<?php if ($data['post']->user_id == $_SESSION['user_id']) : ?>
-  <hr>
-  <a class="btn-sm btn btn-dark" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id2; ?>"><i class="bi bi-pen" aria-hidden="true"></i> Edit</a>
-  <a class="btn-sm btn btn-success" href="<?php echo URLROOT; ?>/users/wall"><i class="bi bi-journal-text" aria-hidden="true"></i> My Wall</a>
-  <form class="float-end" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id2; ?>" method="post">
-    <input type="submit" class="btn-sm btn btn-danger" value="Delete">
-  </form>
-<?php endif; ?>
-
+<hr>
+<div class="fw-light" style="font-size: x-small;">Reactions to this post will appear hear</div>
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

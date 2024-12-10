@@ -13,4 +13,5 @@
         </div>
     </div>
 </div>
+<?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
