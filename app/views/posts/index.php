@@ -23,7 +23,7 @@
 <?php endforeach; ?>
 <!-- End of posts -->
 <div class="d-flex justify-content-center">
-  <div class="spinner-border text-secondary mt-3" role="status">
+  <div class="spinner-border spinner-border-sm text-secondary mt-3" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>

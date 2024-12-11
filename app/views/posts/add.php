@@ -19,7 +19,7 @@
           <textarea name="body" cols="30" rows="10" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>" placeholder="Write here..."><?php echo $data['body']; ?></textarea>
           <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
         </div>
-        <input type="submit" class="btn btn-success px-5 my-2" value="Submit">
+        <input type="submit" class="btn btn-success px-5 my-2" value="Post">
         <!-- <p class="fst-italic fs-6 fw-light">Create a post with this form</p> -->
       </form>
     </div>

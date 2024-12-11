@@ -38,7 +38,7 @@ class Post
 
   public function getPostById2($id)
   {
-    $this->db->query("SELECT * FROM series WHERE id2 = :id");
+    $this->db->query("SELECT * FROM series WHERE id = :id");
 
     $this->db->bind(':id', $id);
 
