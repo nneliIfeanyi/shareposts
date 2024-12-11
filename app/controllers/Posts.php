@@ -115,11 +115,10 @@ class Posts extends Controller
   public function edit($id)
   {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // Sanitize POST
-      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+      $post = $this->postModel->getPostById($id);
       $data = [
         'id' => $id,
+        's_id' => $post->s_id,
         'title' => trim($_POST['title']),
         'body' => trim($_POST['body']),
         'user_id' => $_SESSION['user_id'],
@@ -146,6 +145,9 @@ class Posts extends Controller
           // Update twin post from Series table
           $this->postModel->updateSeries($data);
           flash('post_message', 'Post Updated');
+          if ($post->title !== $data['title']) {
+            $this->postModel->updateByS_id($data);
+          }
           redirect('users/wall');
         } else {
           die('Something went wrong');

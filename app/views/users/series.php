@@ -28,6 +28,7 @@ foreach ($data['posts'] as $post) : ?>
                     <input type="hidden" name="s_id" value="<?= $post->s_id; ?>">
                     <input type="submit" class="btn-sm btn btn-danger" value="Delete">
                 </form>
+                <a href="<?= URLROOT; ?>/users/wall" class="ms-2 btn btn-sm"><i class="bi bi-chevron-left"></i> Return</a>
             <?php endif; ?>
         </div>
     </div>

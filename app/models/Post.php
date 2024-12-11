@@ -12,7 +12,7 @@ class Post
   public function getPosts()
   {
     $this->db->query("SELECT *, 
-                        posts.id2 as postId, 
+                        posts.id as postId, 
                         users.id as userId
                         FROM posts 
                         INNER JOIN users 
@@ -132,6 +132,22 @@ class Post
     $this->db->bind(':title', $data['title']);
     $this->db->bind(':body', $data['body']);
     $this->db->bind(':edited', $data['edited']);
+
+    //Execute
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  public function updateByS_id($data)
+  {
+    // Prepare Query
+    $this->db->query('UPDATE series SET title = :title WHERE s_id = :id');
+
+    // Bind Values
+    $this->db->bind(':id', $data['s_id']);
+    $this->db->bind(':title', $data['title']);
 
     //Execute
     if ($this->db->execute()) {
