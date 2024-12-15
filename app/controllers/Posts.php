@@ -9,7 +9,6 @@ class Posts extends Controller
       redirect('users/login');
     } else {
       $_SESSION['user_id'] = $_COOKIE['user_id'];
-      //redirect('posts');
     }
     // Load Models
     $this->postModel = $this->model('Post');

@@ -1,16 +1,17 @@
 <?php
 class Pages extends Controller
 {
-  public function __construct() {}
-
-  // Load Homepage
-  public function index()
+  public function __construct()
   {
     // If logged in, redirect to posts
     if (isset($_SESSION['user_id'])) {
       redirect('posts');
     }
+  }
 
+  // Load Homepage
+  public function index()
+  {
     //Set Data
     $data = [
       'title' => 'Save For Future Use',
