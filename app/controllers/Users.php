@@ -5,11 +5,6 @@ class Users extends Controller
   public $postModel;
   public function __construct()
   {
-    if (!isset($_COOKIE['user_id'])) {
-      redirect('users/login');
-    } else {
-      $_SESSION['user_id'] = $_COOKIE['user_id'];
-    }
     $this->userModel = $this->model('User');
     $this->postModel = $this->model('Post');
   }
@@ -21,6 +16,9 @@ class Users extends Controller
 
   public function register()
   {
+    if (isset($_COOKIE['user_id'])) {
+      redirect('posts');
+    }
     // Check if POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -108,6 +106,9 @@ class Users extends Controller
 
   public function login()
   {
+    if (isset($_COOKIE['user_id'])) {
+      redirect('posts');
+    }
     // Check if POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -174,6 +175,9 @@ class Users extends Controller
 
   public function profile()
   {
+    if (!isset($_COOKIE['user_id'])) {
+      redirect('users/login');
+    }
     $user = $this->userModel->getUserById($_SESSION['user_id']);
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST

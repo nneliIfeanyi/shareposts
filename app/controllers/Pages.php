@@ -3,10 +3,10 @@ class Pages extends Controller
 {
   public function __construct()
   {
-    // If logged in, redirect to posts
-    if (isset($_SESSION['user_id'])) {
-      redirect('posts');
-    }
+    // if (isset($_SESSION['user_id'])) {
+    //   redirect('posts');
+    // }// If logged in, redirect to posts
+
   }
 
   // Load Homepage
@@ -15,7 +15,7 @@ class Pages extends Controller
     //Set Data
     $data = [
       'title' => 'Save For Future Use',
-      'description' => 'Simple social network built for storing written treasures for the upcoming..'
+      'description' => 'Simple social app built for storing written treasures for the upcoming..'
     ];
 
     // Load homepage/index view
