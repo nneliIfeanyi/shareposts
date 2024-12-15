@@ -9,7 +9,7 @@ class Users extends Controller
       redirect('users/login');
     } else {
       $_SESSION['user_id'] = $_COOKIE['user_id'];
-      redirect('posts');
+      //redirect('posts');
     }
     $this->userModel = $this->model('User');
     $this->postModel = $this->model('Post');
@@ -17,7 +17,7 @@ class Users extends Controller
 
   public function index()
   {
-    redirect('welcome');
+    redirect('posts');
   }
 
   public function register()
