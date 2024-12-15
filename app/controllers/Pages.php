@@ -12,6 +12,9 @@ class Pages extends Controller
   // Load Homepage
   public function index()
   {
+    if (isset($_SESSION['user_id'])) {
+      redirect('posts');
+    }
     //Set Data
     $data = [
       'title' => 'Save For Future Use',
