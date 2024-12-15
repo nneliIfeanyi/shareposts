@@ -21,11 +21,6 @@ class Users extends Controller
 
   public function register()
   {
-    // Check if logged in
-    if ($this->isLoggedIn()) {
-      redirect('posts');
-    }
-
     // Check if POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -113,11 +108,6 @@ class Users extends Controller
 
   public function login()
   {
-    // Check if logged in
-    if ($this->isLoggedIn()) {
-      redirect('posts');
-    }
-
     // Check if POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -184,9 +174,6 @@ class Users extends Controller
 
   public function profile()
   {
-    if (!$this->isLoggedIn()) {
-      redirect('users/login');
-    }
     $user = $this->userModel->getUserById($_SESSION['user_id']);
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Sanitize POST
@@ -218,9 +205,6 @@ class Users extends Controller
 
   public function wall()
   {
-    if (!$this->isLoggedIn()) {
-      redirect('users/login');
-    }
     $posts = $this->userModel->getPosts();
 
     $data = [
@@ -232,9 +216,6 @@ class Users extends Controller
 
   public function series($s_id)
   {
-    if (!$this->isLoggedIn()) {
-      redirect('users/login');
-    }
     $posts = $this->postModel->getseries($s_id);
 
     $data = [
@@ -260,15 +241,5 @@ class Users extends Controller
     session_unset();
     session_destroy();
     redirect('users/login');
-  }
-
-  // Check Logged In
-  public function isLoggedIn()
-  {
-    if (isset($_SESSION['user_id'])) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
