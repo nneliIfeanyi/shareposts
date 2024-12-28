@@ -16,10 +16,11 @@
           <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['title']; ?>">
           <span class="invalid-feedback"><?php echo $data['title_err']; ?></span>
         </div>
-        <div class="form-group my-3">
-          <label>Body</label>
-          <textarea name="body" rows="10" cols="30" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
+        <div class="form-group my-3" style="position: relative;">
+          <label for="post_body">Body</label>
+          <textarea id="post_body" name="body" cols="30" rows="10" maxlength="500" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>" placeholder="Write here..."><?php echo $data['body']; ?></textarea>
           <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
+          <span class="input-count pe-2" id="pla"></span>
         </div>
         <input type="submit" class="btn btn-success my-2 px-5" value="Submit">
       </form>
@@ -28,3 +29,11 @@
 </div>
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<script>
+  var max = 500;
+  $('textarea').keyup(function() {
+    var len = $(this).val().length;
+    var len = max - len;
+    $('#pla').text(len);
+  })
+</script>

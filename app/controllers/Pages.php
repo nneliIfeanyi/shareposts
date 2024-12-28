@@ -18,7 +18,7 @@ class Pages extends Controller
     //Set Data
     $data = [
       'title' => 'Save For Future Use',
-      'description' => 'Simple social app built for storing written treasures for the upcoming..'
+      'description' => 'Simple social app built for storing written treasures'
     ];
 
     // Load homepage/index view

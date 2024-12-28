@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-lg-6 mx-auto">
         <div class=" px-2  pb-3 mb-5">
-            <h2 class="h3">Make Series</h2>
+            <!-- <h2 class="h3">Make Series</h2> -->
             <p class="fst-italic fs-6 fw-light">Create A Stream Of Thought</p>
             <form action="<?php echo URLROOT; ?>/process/append/<?= $data['post']->id; ?>" method="post">
                 <div class="form-group">
@@ -25,10 +25,11 @@
                     </div>
                 <?php $n++;
                 endforeach; ?>
-                <div class="form-group my-3">
+                <div class="form-group my-3" style="position: relative;">
                     <label>Next Episode</label>
-                    <textarea name="ep2" cols="30" rows="7" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>" placeholder="Write here..."><?php echo $data['body']; ?></textarea>
+                    <textarea name="ep2" cols="30" rows="7" maxlength="500" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>" placeholder="Write here..."><?php echo $data['body']; ?></textarea>
                     <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
+                    <span class="input-count pe-2" id="pla"></span>
                 </div>
                 <div class="d-flex">
                     <input type="submit" class="btn btn-success px-4 me-3" value="Submit">
@@ -40,3 +41,11 @@
 </div>
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<script>
+    var max = 500;
+    $('textarea').keyup(function() {
+        var len = $(this).val().length;
+        var len = max - len;
+        $('#pla').text(len);
+    })
+</script>

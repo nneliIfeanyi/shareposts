@@ -8,7 +8,7 @@
         $('#loading-image').delay(300).fadeOut('slow');
 
         $(window).on('beforeunload', function() {
-            $('#loading-bg').fadeIn();
+            //$('#loading-bg').fadeIn();
             $('#loading-image').fadeIn();
         });
     });

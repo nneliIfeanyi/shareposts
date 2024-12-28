@@ -13,9 +13,10 @@
             <!-- <p class="fst-italic fs-6 fw-light">Change the details of this post</p> -->
             <form action="<?php echo URLROOT; ?>/process/edit/<?php echo $data['id']; ?>" method="post">
                 <input type="hidden" name="title" value="<?php echo $data['title']; ?>">
-                <div class=" form-group mb-3">
-                    <textarea name="body" rows="10" cols="30" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
+                <div class="form-group my-3" style="position: relative;">
+                    <textarea id="post_body" name="body" cols="30" rows="10" maxlength="500" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>" placeholder="Write here..."><?php echo $data['body']; ?></textarea>
                     <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
+                    <span class="input-count pe-2" id="pla"></span>
                 </div>
                 <div class="d-flex">
                     <input type="submit" class="btn btn-success px-5 me-3" value="Submit">
@@ -27,3 +28,11 @@
 
         <?php require APPROOT . '/views/inc/foot.php'; ?>
         <?php require APPROOT . '/views/inc/footer.php'; ?>
+        <script>
+            var max = 500;
+            $('textarea').keyup(function() {
+                var len = $(this).val().length;
+                var len = max - len;
+                $('#pla').text(len);
+            })
+        </script>

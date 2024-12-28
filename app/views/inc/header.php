@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.css" />
+  <link rel="stylesheet" href="<?= URLROOT; ?>/css/theme.css" />
   <link rel="stylesheet" href="<?= URLROOT; ?>/bootstrap-icons/bootstrap-icons.css" />
   <title><?php echo SITENAME; ?></title>
   <!-- more meta -->
@@ -30,22 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar" content="#ced4da">
   <meta name="theme-color" content="#ced4da">
   <style>
-    #loading-bg {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(206, 212, 218, 0.9);
-      z-index: 500;
-    }
 
-    #loading-image {
-      position: fixed;
-      top: 50%;
-      left: 47%;
-      z-index: 510;
-    }
   </style>
 </head>
 
