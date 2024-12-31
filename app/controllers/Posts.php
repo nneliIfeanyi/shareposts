@@ -59,10 +59,7 @@ class Posts extends Controller
         'body_err' => ''
       ];
 
-      // Validate email
       if (empty($data['title'])) {
-        $data['title_err'] = 'Please enter name';
-        // Validate name
         if (empty($data['body'])) {
           $data['body_err'] = 'Please enter the post body';
         }

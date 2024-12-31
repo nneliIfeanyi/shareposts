@@ -210,9 +210,13 @@ class Users extends Controller
   public function wall()
   {
     $posts = $this->userModel->getPosts();
+    $private = $this->userModel->getPrivate();
+    $public = $this->userModel->getPublic();
 
     $data = [
-      'posts' => $posts
+      'posts' => $posts,
+      'private' => $private,
+      'public' => $public
     ];
 
     $this->view('users/wall', $data);

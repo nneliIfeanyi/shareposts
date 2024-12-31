@@ -31,7 +31,21 @@
   <meta name="apple-mobile-web-app-status-bar" content="#ced4da">
   <meta name="theme-color" content="#ced4da">
   <style>
+    .horizontal-scroll {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .cardz {
+        display: inline-block;
+      }
+
+    }
   </style>
 </head>
 

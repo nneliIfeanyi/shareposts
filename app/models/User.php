@@ -100,4 +100,22 @@ class User
     $results = $this->db->resultset();
     return $results;
   }
+
+  public function getPublic()
+  {
+    $this->db->query("SELECT * FROM posts WHERE user_id = :user_id AND status = :status ORDER BY created_at DESC;");
+    $this->db->bind(':user_id', $_SESSION['user_id']);
+    $this->db->bind(':status', 'on');
+    $results = $this->db->resultset();
+    return $results;
+  }
+
+  public function getPrivate()
+  {
+    $this->db->query("SELECT * FROM posts WHERE user_id = :user_id AND status = :status ORDER BY created_at DESC;");
+    $this->db->bind(':user_id', $_SESSION['user_id']);
+    $this->db->bind(':status', '');
+    $results = $this->db->resultset();
+    return $results;
+  }
 }
