@@ -13,7 +13,7 @@
     Stanvic Best | <span class="fw-lighter fst-italic"><?php echo date('M d, Y'); ?></span>
   </div>
   <p class="card-text">You can start by writting a journal | How your day went today.</p>
-  <a class="btn btn-dark" href="<?php echo URLROOT; ?>/users/login">More</a>
+  <a class="btn btn-dark" href="<?php echo URLROOT; ?>/posts/add">Begin Now</a>
 </div>
 <?php require APPROOT . '/views/inc/foot.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

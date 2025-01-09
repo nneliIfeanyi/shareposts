@@ -10,7 +10,7 @@
 <?php $n = 1;
 foreach ($data['posts'] as $post) : ?>
     <div class="card card-body mb-3" style="position: relative;">
-        <span class="badge text-bg-light shadow fw-light" style="position: absolute;top:0;right:0;font-size:x-small;">Episode <?= $n; ?></span>
+        <span class="badge text-bg-dark shadow fw-light" style="position: absolute;top:0;right:0;font-size:x-small;">Episode <?= $n; ?></span>
         <h4 class="card-title fst-italic"><?php echo $post->title; ?></h4>
         <div class="bg-light p-2 mb-3">
             Written on <?php echo $post->created_at; ?>
