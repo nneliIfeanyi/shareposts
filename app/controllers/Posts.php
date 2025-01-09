@@ -60,6 +60,7 @@ class Posts extends Controller
       ];
 
       if (empty($data['title'])) {
+        $data['title'] = 'Title';
         if (empty($data['body'])) {
           $data['body_err'] = 'Please enter the post body';
         }

@@ -28,16 +28,22 @@
                         <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/append/<?php echo $post->id; ?>">Append More</a>
                     <?php else: ?>
                         <?php if (empty($post->status)): ?>
-                            <a class="btn-sm btn btn-outline-success me-2 mb-2" href="<?php echo URLROOT; ?>/posts/status_on/<?php echo $post->id2; ?>">Publish</a>
+                            <a class="btn-sm btn btn-outline-success me-2 mb-2" href="<?php echo URLROOT; ?>/posts/status_on/<?php echo $post->id2; ?>">
+                                <i data-bs-toggle="tooltip" data-bs-title="Publish Post" class="bi bi-send"></i>
+                            </a>
                         <?php else: ?>
-                            <a class="btn-sm btn btn-outline-success me-2 mb-2" href="<?php echo URLROOT; ?>/posts/status_off/<?php echo $post->id2; ?>">Retrieve</a>
+                            <a class="btn-sm btn btn-outline-success me-2 mb-2" href="<?php echo URLROOT; ?>/posts/status_off/<?php echo $post->id2; ?>">
+                                <i data-bs-toggle="tooltip" data-bs-title="Retrieve Post" class="bi bi-send-dash"></i>
+                            </a>
                         <?php endif; ?>
-                        <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/append/<?php echo $post->id; ?>">Append Post</a>
+                        <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/append/<?php echo $post->id; ?>">
+                            <i data-bs-toggle="tooltip" data-bs-title="Append Post" class="bi bi-plus-circle"></i>
+                        </a>
                         <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $post->id; ?>">
-                            <i class="bi bi-pen"></i>
+                            <i data-bs-toggle="tooltip" data-bs-title="Edit Post" class="bi bi-pen"></i>
                         </a>
                         <a class=" btn-sm btn btn-outline-danger me-2 mb-2" href="<?php echo URLROOT; ?>/posts/delete_post/<?php echo $post->id; ?>">
-                            <i class="bi bi-trash"></i>
+                            <i data-bs-toggle="tooltip" data-bs-title="Delete Post" class="bi bi-trash"></i>
                         </a>
                     <?php endif; ?>
                 </div>
