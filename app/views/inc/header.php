@@ -71,7 +71,7 @@
 
     .single-line {
       overflow: hidden;
-      height: 6rem;
+      height: 3rem;
       line-height: 1.5rem;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 5;
