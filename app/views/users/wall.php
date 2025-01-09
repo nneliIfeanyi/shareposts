@@ -8,7 +8,7 @@
 </nav>
 <?php flash('post_message'); ?>
 <hr>
-<h5>Private Posts</h5>
+<h5 class="text-muted lead">Private Posts</h5>
 <div class="horizontal-scroll">
     <?php foreach ($data['private'] as $post) : ?>
         <div class="cardz">
@@ -17,7 +17,9 @@
                 <div class="bg-light p-2 mb-3">
                     Written on <?php echo $post->created_at; ?>
                 </div>
-                <p class="card-text"><?php echo $post->body; ?></p>
+                <p data-bs-toggle="modal" data-bs-target="#view<?php echo $post->id; ?>" class="card-text text-truncate point">
+                    <?php echo $post->body; ?>
+                </p>
                 <hr>
                 <div class="d-flex flex-wrap">
 
@@ -37,10 +39,33 @@
                 </div>
             </div>
         </div>
+        <!-- View Modal -->
+        <div class="modal fade" id="view<?php echo $post->id; ?>" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><?php echo $post->title; ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <p class="multi-line">
+                                <?php echo $post->body; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-flex gap-4">
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">Done</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- End View Modal-->
     <?php endforeach; ?>
 </div>
-<hr>
-<h5>Public Posts</h5>
+<h5 class="mt-5 text-muted lead">Public Posts</h5>
 <?php foreach ($data['public'] as $post) : ?>
     <div class="card card-body mb-3">
         <h4 class="card-title"><?php echo $post->title; ?></h4>

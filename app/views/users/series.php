@@ -15,7 +15,9 @@ foreach ($data['posts'] as $post) : ?>
         <div class="bg-light p-2 mb-3">
             Written on <?php echo $post->created_at; ?>
         </div>
-        <p class="card-text"><?php echo $post->body; ?></p>
+        <p data-bs-toggle="modal" data-bs-target="#view<?php echo $post->id; ?>" class="card-text text-truncate point">
+            <?php echo $post->body; ?>
+        </p>
         <hr>
         <div class="d-flex">
             <?php if ($n == 1): ?>
@@ -32,6 +34,31 @@ foreach ($data['posts'] as $post) : ?>
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- View Modal -->
+    <div class="modal fade" id="view<?php echo $post->id; ?>" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><?php echo $post->title; ?> &nbsp;&nbsp;<span class="fw-light fst-italic fs-6"> Episode <?= $n; ?></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p class="multi-line">
+                            <?php echo $post->body; ?>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex gap-4">
+                        <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">Done</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- End View Modal-->
 <?php $n++;
 endforeach; ?>
 <?php require APPROOT . '/views/inc/foot.php'; ?>

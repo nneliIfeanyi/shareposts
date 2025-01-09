@@ -31,20 +31,74 @@
   <meta name="apple-mobile-web-app-status-bar" content="#ced4da">
   <meta name="theme-color" content="#ced4da">
   <style>
-    .horizontal-scroll {
-      overflow-x: scroll;
-      overflow-y: hidden;
+    @media screen and (max-width:648px) {
+      .horizontal-scroll {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .cardz {
+          display: inline-block;
+          width: 86%;
+        }
+
+      }
+    }
+
+    @media screen and (min-width:648px) {
+      .horizontal-scroll {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+
+        /* &::-webkit-scrollbar {
+          display: none;
+        } */
+
+        .cardz {
+          display: inline-block;
+          width: 56%;
+        }
+
+      }
+    }
+
+    /* .single-line {
+      overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
+    } */
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    .multi-line {
+      /* text-overflow: clip; */
+      white-space: normal;
+    }
 
-      .cardz {
-        display: inline-block;
-      }
+    .point {
+      cursor: pointer;
+    }
 
+    #loading-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(206, 212, 218, 0.9364);
+      z-index: 500;
+    }
+
+    #loading-image {
+      position: fixed;
+      top: 50%;
+      left: 47%;
+      z-index: 510;
     }
   </style>
 </head>
