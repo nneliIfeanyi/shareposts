@@ -22,7 +22,7 @@
           <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
           <span class="input-count pe-2" id="pla"></span>
         </div>
-        <input type="submit" class="btn btn-success my-2 px-5" value="Submit">
+        <input type="submit" class="btn btn-success my-2 px-5" value="Save changes">
       </form>
     </div>
   </div>

@@ -13,11 +13,11 @@
     <?php foreach ($data['private'] as $post) : ?>
         <div class="cardz">
             <div class="card card-body mb-3">
-                <h4 class="card-title"><?php echo $post->title; ?></h4>
+                <h4 data-bs-toggle="modal" data-bs-target="#view<?php echo $post->id; ?>" class="card-title text-truncate point"><?php echo $post->title; ?></h4>
                 <div class="bg-light p-2 mb-3">
                     Written on <?php echo $post->created_at; ?>
                 </div>
-                <p data-bs-toggle="modal" data-bs-target="#view<?php echo $post->id; ?>" class="card-text text-truncate point">
+                <p data-bs-toggle="modal" data-bs-target="#view<?php echo $post->id; ?>" class="card-text single-line point">
                     <?php echo $post->body; ?>
                 </p>
                 <hr>
@@ -33,8 +33,12 @@
                             <a class="btn-sm btn btn-outline-success me-2 mb-2" href="<?php echo URLROOT; ?>/posts/status_off/<?php echo $post->id2; ?>">Retrieve</a>
                         <?php endif; ?>
                         <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/append/<?php echo $post->id; ?>">Append Post</a>
-                        <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $post->id; ?>">Edit</a>
-                        <a class=" btn-sm btn btn-outline-danger me-2 mb-2" href="<?php echo URLROOT; ?>/posts/delete_post/<?php echo $post->id; ?>">Delete</a>
+                        <a class=" btn-sm btn btn-outline-secondary me-2 mb-2" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $post->id; ?>">
+                            <i class="bi bi-pen"></i>
+                        </a>
+                        <a class=" btn-sm btn btn-outline-danger me-2 mb-2" href="<?php echo URLROOT; ?>/posts/delete_post/<?php echo $post->id; ?>">
+                            <i class="bi bi-trash"></i>
+                        </a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -44,7 +48,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title"><?php echo $post->title; ?></h5>
+                        <h5 class="modal-title multi-line"><?php echo $post->title; ?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -65,7 +69,7 @@
         </div><!-- End View Modal-->
     <?php endforeach; ?>
 </div>
-<h5 class="mt-5 text-muted lead">Public Posts</h5>
+<h5 class="mt-2 text-muted lead">Public Posts</h5>
 <?php foreach ($data['public'] as $post) : ?>
     <div class="card card-body mb-3">
         <h4 class="card-title"><?php echo $post->title; ?></h4>

@@ -69,11 +69,15 @@
       }
     }
 
-    /* .single-line {
+    .single-line {
       overflow: hidden;
+      height: 6rem;
+      line-height: 1.5rem;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
       text-overflow: ellipsis;
-      white-space: nowrap;
-    } */
+      display: block;
+    }
 
     .multi-line {
       /* text-overflow: clip; */
