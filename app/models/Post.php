@@ -17,7 +17,7 @@ class Post
                         FROM posts 
                         INNER JOIN users 
                         ON posts.user_id = users.id
-                        WHERE status = :status ORDER BY posts.created_at DESC;");
+                        WHERE status = :status ORDER BY rand() ;");
     $this->db->bind(':status', 'on');
     $results = $this->db->resultset();
 

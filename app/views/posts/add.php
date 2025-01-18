@@ -20,8 +20,9 @@
           <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
           <span class="input-count pe-2" id="pla"></span>
         </div>
-        <input type="submit" class="btn btn-success px-5 my-2" value="Post">
-        <!-- <p class="fst-italic fs-6 fw-light">Create a post with this form</p> -->
+        <input type="submit" class="btn btn-success px-4 my-2" value="Post">
+        &nbsp;&nbsp;&nbsp;<a href="<?php echo URLROOT; ?>/posts" class="fst-italic btn fs-6 fw-light">Explore</a>
+        &nbsp;&nbsp;&nbsp;<a href="<?php echo URLROOT; ?>/posts" class="fst-italic btn fs-6">Not now</a>
       </form>
     </div>
   </div>
